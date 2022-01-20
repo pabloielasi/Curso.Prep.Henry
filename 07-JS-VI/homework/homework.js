@@ -4,8 +4,11 @@ function mayuscula(nombre) {
   //La función recibe un nombre y debe devolver el mismo que recibe pero con su primer letra en mayúscula
   //ej: Recibe "mario" ----> Devuelve "Mario"
   //Tu código:
-  return nombre.charAt(0).toUpperCase() + nombre.slice(1);
-   
+ // return nombre.charAt(0).toUpperCase() + nombre.slice(1);
+var inicial = nombre[0]; 
+var mayusc = inicial.toUpperCase();
+return nombre.replace(nombre[0], mayusc);
+
 }
 
 function invocarCallback(cb) {
@@ -28,7 +31,7 @@ function sumarArray(numeros, cb) {
   //Tu código:
 var suma = numeros.reduce(function (acc, curr) {
  return (acc + curr);
-});
+}, 0);
 cb(suma);
 }
 
@@ -47,35 +50,38 @@ function map(array, cb) {
   // Itera sobre cada valor en "array", pásalo a `cb` y luego ubicar el valor devuelto por `cb` en un nuevo array
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
-// var nuevoarray = array.map (function(element) {
-//return cb(element)
-//});
-//return nuevoarray;
-//}
-var newarray = [];
-for (let i = 0; i < array.length; i++) {
-  newarray.push(cb(array[i]));  
+ var nuevoarray = [];
+
+array.map (function(element) {
+return nuevoarray.push(cb(element));
+});
+return nuevoarray;
 }
-return newarray;
-}
+
 
 function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-//var newarray = [];
-//for (let i = 0; i < array.length; i++) {
-//  if (array[i][0] === 'a') {
-//newarray.push(array[i]);
-//}
-//}
-//return newarray;
-//}
-newArray = array.filter(function(elemento) {
- return elemento[0] === 'a'; 
-})
-return newArray;
+var newarray = [];
+for (let i = 0; i < array.length; i++) {
+  if (array[i][0] === 'a') {
+newarray.push(array[i]);
 }
+}
+return newarray;
+}
+
+//newArray = array.filter(function(elemento) {
+// return elemento[0] === 'a'; 
+//})
+//return newArray;
+//}
+//newArray = array.filter(function(elemento) {
+//if (elemento[0] === 'a') 
+//return elemento;});
+//return newArray;
+//}
 
 // No modificar nada debajo de esta línea
 // --------------------------------

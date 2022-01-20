@@ -174,7 +174,7 @@ describe('mayorACien(array)', function() {
   });
 });
 
-describe('breakStatement(numero)', function() {
+describe.only('breakStatement(numero)', function() {
   it('should return an array with the values ​​resulting from adding 2 in each iteration', function() {
     expect(breakStatement(50)).toEqual([52, 54, 56, 58, 60, 62, 64, 66, 68, 70]);
   });

@@ -3,14 +3,14 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
-return (array[0]);
+return array[0];
 }
 
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-  return (array[array.length -1]);
+  return array[array.length -1];
 }
 
 
@@ -66,16 +66,15 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-for (i = 0; i < array.length; i++) {
-  if (array[i] === elemento) {
-  return true; } 
+if (array.includes(elemento))
+return true;
+else return false;
 }
-  return false 
-}
+
 function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
-  // Tu código:
+  // Tu código: /// o se puede invocar la funcion anterior para ahorrar codigo
   var suma = 0;
 for (i = 0; i < numeros.length; i ++) {
   suma = suma + numeros[i]; 
@@ -89,8 +88,13 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-return agregarNumeros(resultadosTest) / resultadosTest.length;
+//return agregarNumeros(resultadosTest) / resultadosTest.length;
+var suma = 0;
+for (let i = 0; i < resultadosTest.length; i++) {
+suma = suma + resultadosTest[i];  
+}
 
+return (suma / resultadosTest.length);
 }
 
 
@@ -100,12 +104,11 @@ function numeroMasGrande(numeros) {
   // Tu código:
   var bigger= 0;
   for (let i = 0; i < numeros.length; i++) {
-   if (numeros[i] > bigger) {
-  bigger = numeros[i];
-   }
-   }
-  return bigger
-}
+   if (numeros[i] > bigger)
+   bigger = numeros[i];
+ }
+return bigger; 
+ }
 
 
 function multiplicarArgumentos() {
@@ -142,15 +145,15 @@ function diaDeLaSemana(numeroDeDia) {
   //Escribe tu código aquí   
     if (numeroDeDia === 1 || numeroDeDia === 7 ) {
   return 'Es fin de semana';}
- return 'Es dia Laboral';
+ else return 'Es dia Laboral';
 }
 
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-var str = String(n);
-  if (str[0] === '9'){
+var numero = n.toString(); //var str = String(n);
+  if (numero[0] === '9'){
  return true;}
 else { 
   return false    
@@ -161,10 +164,10 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  for (let i = 0; i < arreglo.length -1; i++) {
-  if (arreglo[i] !== arreglo[i + 1]) 
+  for (let i = 0; i < arreglo.length; i++) {
+  if (arreglo[0] !== arreglo[i]) 
   return false;}
-return true
+  return true;
   } 
 
 
@@ -174,7 +177,7 @@ function mesesDelAño(array) {
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
  
-  var eneromarzonoviembre = [];
+var eneromarzonoviembre = [];
   for (let i = 0; i < array.length; i++) {
   if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre" ) {
     eneromarzonoviembre.push(array[i]);
@@ -186,6 +189,7 @@ function mesesDelAño(array) {
     return "No se encontraron los meses pedidos";
   }
 }
+
 
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
@@ -211,21 +215,23 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
   var nuevoarray = [];
+  var suma = numero;
   for (var i = 0; i < 10; i++) {
-    if (numero === i) {
+    suma = suma +2;
+      if (suma === i) {
       break;
     } 
     else {
-      numero = numero + 2;
-      nuevoarray.push(numero);
+          nuevoarray.push(suma);
   }
 }
-if (i < 10) {
+if (i < 10) 
+{
 return "Se interrumpió la ejecución";
 }
 else {
 return nuevoarray;  
- }
+}
 }
 
 

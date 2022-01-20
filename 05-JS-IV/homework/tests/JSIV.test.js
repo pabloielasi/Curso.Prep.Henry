@@ -16,7 +16,7 @@ const {
   agregarMetodoCalculoDescuento
 } = require('../homework');
 
-describe('crearGato(nombre, edad)', function() {
+describe.only('crearGato(nombre, edad)', function() {
   it('should create a new cat with the nombre and edad properties set', function() {
     expect(crearGato('Snowball', 1).nombre).toBe('Snowball');
     expect(crearGato('Snowball', 1).edad).toBe(1);
@@ -211,7 +211,7 @@ describe('sumarLikesDeUsuario(user)', function() {
   });
 });
 
-describe('agregarMetodoCalculoDescuento(storeItem)', function() {
+describe.only('agregarMetodoCalculoDescuento(storeItem)', function() {
   const storeItem = {
     precio: 80,
     porcentajeDeDescuento: 0.1,
